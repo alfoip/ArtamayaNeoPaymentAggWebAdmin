@@ -1,0 +1,85 @@
+syntax = "proto3";
+option go_package = ".";
+package XXX;
+
+message AdminLoginRequest {
+    string email = 1;
+    string password = 2;
+    string remoteipaddress = 3;
+}
+
+message AdminLoginResponse {
+    string email = 1;
+    string sessionid = 2;
+    string status = 3;
+    string fullname = 4;
+    string phonenumber = 5;
+}
+
+message AdminCheckSessionRequest {
+    string email = 1;
+    string remoteipaddress = 2;
+    string sessionid = 3;
+}
+
+message AdminCheckSessionResponse {
+    string email = 1;
+    string sessionid = 2;
+    string status = 3;
+}
+
+message AdminLogoutRequest {
+    string email = 1;
+    string sessionid = 2;
+}
+
+message AdminLogoutResponse {
+    bool status = 1;
+}
+
+message AdminRegisterClientRequest {
+    string email = 1;
+    string password01 = 2;
+    string password02 = 3;
+    string fullname = 4;
+    string birthdate = 5;
+    string gender = 6;
+    string address = 7;
+    string city = 8;
+    string region = 9;
+    string country = 10;
+    string phonenumber = 11;
+    string clientid = 12;
+}
+
+message AdminRegisterClientResponse {
+    string email = 1;
+    string status = 2;
+}
+
+message AdminRegisterAdminRequest {
+    string email = 1;
+    string password01 = 2;
+    string password02 = 3;
+    string fullname = 4;
+    string birthdate = 5;
+    string gender = 6;
+    string address = 7;
+    string city = 8;
+    string region = 9;
+    string country = 10;
+    string phonenumber = 11;
+}
+
+message AdminRegisterAdminResponse {
+    string email = 1;
+    string status = 2;
+}
+
+service AuthService {
+    rpc DoAdminLogin(AdminLoginRequest) returns (AdminLoginResponse) {}
+    rpc DoAdminCheckSession(AdminCheckSessionRequest) returns (AdminCheckSessionResponse) {}
+    rpc DoAdminLogout(AdminLogoutRequest) returns (AdminLogoutResponse) {}
+    rpc DoRegisterNewClientAccount(AdminRegisterClientRequest) returns (AdminRegisterClientResponse) {}
+    rpc DoRegisterNewAdminAccount(AdminRegisterAdminRequest) returns (AdminRegisterAdminResponse) {}
+}
