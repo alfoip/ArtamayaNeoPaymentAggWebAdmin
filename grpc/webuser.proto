@@ -1,0 +1,124 @@
+syntax = "proto3";
+option go_package = ".";
+package WebUser;
+
+message GRPCCreateWebUserRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string name = 5;
+  string email = 6;
+  string password = 7;
+  string privilege = 8;
+}
+
+message GRPCCreateWebUserResponse {
+  string clientid = 1;
+  string name = 2;
+  string email = 3;
+  string password = 4;
+  string privilege = 5;
+  string status = 6;
+}
+
+message GRPCReadWebUserRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string name = 5;
+  string email = 6;
+  string privilege = 7;
+}
+
+message GRPCWebUserList {
+  string id = 1;
+  string clientid = 2;
+  string clientname = 3;
+  string name = 4;
+  string email = 5;
+  string password = 6;
+  string privilegeid = 7;
+  string privilege = 8;
+  bool isactive = 9;
+  bool isdelete = 10;
+  string createdate = 11;
+  string updatedate = 12;
+}
+
+message GRPCReadWebUserResponse {
+  repeated GRPCWebUserList webuserlist = 1;
+  string status = 2;
+}
+
+message GRPCUpdateWebUserRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string clientid = 5;
+  string name = 6;
+  string email = 7;
+  string privilege = 8;
+}
+
+message GRPCUpdateWebUserResponse {
+  string clientid = 1;
+  string name = 2;
+  string email = 3;
+  string privilege = 4;
+  string status = 5;
+}
+
+message GRPCDeleteWebUserRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string clientid = 5;
+  string email = 6;
+  string credentialpassword = 7;
+}
+
+message GRPCDeleteWebUserResponse {
+  string status = 1;
+}
+
+message GRPCUpdateWebUserStatusRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string clientid = 5;
+  string email = 6;
+}
+
+message GRPCUpdateWebUserStatusResponse {
+  string status = 1;
+}
+
+message GRPCReadPrivilegeRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+}
+
+message GRPCPrivilegeList {
+  string privilegeid = 1;
+  string privilegedescription = 2;
+}
+
+message GRPCReadPrivilegeResponse {
+  repeated GRPCPrivilegeList privilegelist = 1;
+  string status = 2;
+}
+
+service WebUserService {
+  rpc DoGRPCCreateWebUser(GRPCCreateWebUserRequest) returns (GRPCCreateWebUserResponse) {}
+  rpc DoGRPCReadWebUser(GRPCReadWebUserRequest) returns (GRPCReadWebUserResponse) {}
+  rpc DoGRPCUpdateWebUser(GRPCUpdateWebUserRequest) returns (GRPCUpdateWebUserResponse) {}
+  rpc DoGRPCDeleteWebUser(GRPCDeleteWebUserRequest) returns (GRPCDeleteWebUserResponse) {}
+  rpc DoGRPCUpdateWebUserStatus(GRPCUpdateWebUserStatusRequest) returns (GRPCUpdateWebUserStatusResponse) {}
+  rpc DoGRPCReadPrivilege(GRPCReadPrivilegeRequest) returns (GRPCReadPrivilegeResponse) {}
+}

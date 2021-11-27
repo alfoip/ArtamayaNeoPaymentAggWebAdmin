@@ -1,0 +1,189 @@
+syntax = "proto3";
+option go_package = ".";
+package Client;
+
+message GRPCCreateClientRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string clientname = 5;
+  string clientaddress = 6;
+  string clientregion = 7;
+  string clientcountryid = 8;
+  string clientemail = 9;
+  string clientphone = 10;
+  string clientcurrency = 11;
+  string picname = 12;
+  string picemail = 13;
+  string picphone = 14;
+  bool isactive = 15;
+}
+
+message GRPCCreateClientResponse {
+  string responseemail = 1;
+  string responsesessionid = 2;
+  string responseremoteipaddress = 3;
+  string clientid = 4;
+  string clientname = 5;
+  string clientaddress = 6;
+  string clientregion = 7;
+  string clientcountryid = 8;
+  string clientemail = 9;
+  string clientphone = 10;
+  string clientcurrency = 11;
+  string picname = 12;
+  string picemail = 13;
+  string picphone = 14;
+  bool isactive = 15;
+  string status = 16;
+}
+
+message GRPCReadClientRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string clientname = 5;
+  string clientregion = 6;
+  string clientcountryname = 7;
+  string clientemail = 8;
+  string picname = 9;
+  bool isactive = 10;
+}
+
+message GRPCClientList {
+  string clientid = 1;
+  string clientname = 2;
+  string clientaddress = 3;
+  string clientregion = 4;
+  string clientcountryname = 5;
+  string clientemail = 6;
+  string clientphone = 7;
+  string clientcurrency = 8;
+  string picname = 9;
+  string picemail = 10;
+  string picphone = 11;
+  bool isactive = 12;
+  bool isdelete = 13;
+  string createdate = 14;
+  string updatedate = 15;
+}
+
+message GRPCReadClientResponse {
+  repeated GRPCClientList clientlist = 1;
+  string status = 2;
+}
+
+message GRPCUpdateClientRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string clientname = 5;
+  string clientaddress = 6;
+  string clientregion = 7;
+  string clientcountryid = 8;
+  string clientemail = 9;
+  string clientphone = 10;
+  string clientcurrency = 11;
+  string picname = 12;
+  string picemail = 13;
+  string picphone = 14;
+}
+
+message GRPCUpdateClientResponse {
+  string responseemail = 1;
+  string responsesessionid = 2;
+  string responseremoteipaddress = 3;
+  string clientid = 4;
+  string clientname = 5;
+  string clientaddress = 6;
+  string clientregion = 7;
+  string clientcountryid = 8;
+  string clientemail = 9;
+  string clientphone = 10;
+  string clientcurrency = 11;
+  string picname = 12;
+  string picemail = 13;
+  string picphone = 14;
+  string status = 15;
+}
+
+message GRPCDeleteClientRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string credentialpassword = 5;
+}
+
+message GRPCDeleteClientResponse {
+  string status = 1;
+}
+
+message GRPCUnDeleteClientRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+}
+
+message GRPCUnDeleteClientResponse {
+  string status = 1;
+}
+
+message GRPCUpdateClientStatusRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+}
+
+message GRPCUpdateClientStatusResponse {
+  string status = 1;
+}
+
+
+message GRPCReadCountryRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+}
+
+message GRPCCountryList {
+  string countryiso3 = 1;
+  string countrynicename = 2;
+}
+
+message GRPCReadCountryResponse {
+  repeated GRPCCountryList countrylist = 1;
+  string status = 2;
+}
+
+message GRPCReadCurrencyRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+}
+
+message GRPCCurrencyList {
+  string currencyid = 1;
+  string currencyname = 2;
+}
+
+message GRPCReadCurrencyResponse {
+  repeated GRPCCurrencyList currencylist = 1;
+  string status = 2;
+}
+
+service ClientService {
+  rpc DoGRPCCreateClient(GRPCCreateClientRequest) returns (GRPCCreateClientResponse) {}
+  rpc DoGRPCReadClient(GRPCReadClientRequest) returns (GRPCReadClientResponse) {}
+  rpc DoGRPCUpdateClient(GRPCUpdateClientRequest) returns (GRPCUpdateClientResponse) {}
+  rpc DoGRPCDeleteClient(GRPCDeleteClientRequest) returns (GRPCDeleteClientResponse) {}
+  rpc DoGRPCUnDeleteClient(GRPCUnDeleteClientRequest) returns (GRPCUnDeleteClientResponse) {}
+  rpc DoGRPCUpdateClientStatus(GRPCUpdateClientStatusRequest) returns (GRPCUpdateClientStatusResponse) {}
+  rpc DoGRPCReadCountry(GRPCReadCountryRequest) returns (GRPCReadCountryResponse) {}
+  rpc DoGRPCReadCurrency(GRPCReadCurrencyRequest) returns (GRPCReadCurrencyResponse) {}
+}

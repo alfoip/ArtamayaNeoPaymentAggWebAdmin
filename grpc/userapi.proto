@@ -1,0 +1,120 @@
+syntax = "proto3";
+option go_package = ".";
+package UserAPI;
+
+message GRPCCreateUserAPIRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string username = 5;
+  string password = 6;
+  string remoteipaddress = 7;
+  string apiaccess = 8;
+}
+
+message GRPCCreateUserAPIResponse {
+  string clientid = 1;
+  string username = 2;
+  string password = 3;
+  string remoteipaddress = 4;
+  string apiaccess = 5;
+  string status = 6;
+}
+
+message GRPCReadUserAPIRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string clientid = 4;
+  string username = 5;
+}
+
+message GRPCUserAPIList {
+  string id = 1;
+  string clientid = 2;
+  string username = 3;
+  string password = 4;
+  string remoteipaddress = 5;
+  string apiaccess = 6;
+  string token = 7;
+  string tokenexpiry = 8;
+  string createdate = 9;
+  string updatedate = 10;
+  bool isactive = 11;
+  bool isdeleted = 12;
+}
+
+message GRPCReadUserAPIResponse {
+  repeated GRPCUserAPIList userapilist = 1;
+  string status = 2;
+}
+
+message GRPCUpdateUserAPIRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string username = 5;
+  string password = 6;
+  string remoteipaddress = 7;
+  string apiaccess = 8;
+  string clientid = 9;
+}
+
+message GRPCUpdateUserAPIResponse {
+  string clientid = 1;
+  string username = 2;
+  string password = 3;
+  string remoteipaddress = 4;
+  string apiaccess = 5;
+  string status = 6;
+}
+
+message GRPCDeleteUserAPIRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string username = 5;
+  string credentialpassword = 6;
+}
+
+message GRPCDeleteUserAPIResponse {
+  string status = 1;
+}
+
+message GRPCUpdateUserAPIStatusRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string username = 5;
+}
+
+message GRPCUpdateUserAPIStatusResponse {
+  string status = 1;
+}
+
+message GRPCResetUserAPIRequest {
+  string requestemail = 1;
+  string requestsessionid = 2;
+  string requestremoteipaddress = 3;
+  string id = 4;
+  string username = 5;
+  string credentialpassword = 6;
+}
+
+message GRPCResetUserAPIResponse {
+  string status = 1;
+  string password = 2;
+}
+
+service UserAPIService {
+  rpc DoGRPCCreateUserAPI(GRPCCreateUserAPIRequest) returns (GRPCCreateUserAPIResponse) {}
+  rpc DoGRPCReadUserAPI(GRPCReadUserAPIRequest) returns (GRPCReadUserAPIResponse) {}
+  rpc DoGRPCUpdateUserAPI(GRPCUpdateUserAPIRequest) returns (GRPCUpdateUserAPIResponse) {}
+  rpc DoGRPCDeleteUserAPI(GRPCDeleteUserAPIRequest) returns (GRPCDeleteUserAPIResponse) {}
+  rpc DoGRPCUpdateUserAPIStatus(GRPCUpdateUserAPIStatusRequest) returns (GRPCUpdateUserAPIStatusResponse) {}
+  rpc DoGRPCResetUserAPI(GRPCResetUserAPIRequest) returns (GRPCResetUserAPIResponse) {}
+}
