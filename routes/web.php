@@ -1,101 +1,110 @@
 <?php
 
-use App\Http\Livewire\Accordion;
+use App\Http\Livewire\Faq;
+use App\Http\Livewire\Blog;
+use App\Http\Livewire\Chat;
+use App\Http\Livewire\Flex;
+use App\Http\Livewire\Mail;
+use App\Http\Livewire\Tabs;
+use App\Http\Livewire\Tags;
+use App\Http\Livewire\Badge;
+use App\Http\Livewire\Cards;
+use App\Http\Livewire\Icons;
+use App\Http\Livewire\Index;
+use App\Http\Livewire\Reset;
+use App\Http\Livewire\Toast;
+use App\Http\Livewire\Width;
 use App\Http\Livewire\Alerts;
 use App\Http\Livewire\Avatar;
-use App\Http\Livewire\Background;
-use App\Http\Livewire\Badge;
-use App\Http\Livewire\Blog;
 use App\Http\Livewire\Border;
-use App\Http\Livewire\Breadcrumbs;
-use App\Http\Livewire\Buttons;
-use App\Http\Livewire\Calendar;
-use App\Http\Livewire\Cards;
-use App\Http\Livewire\Carousel;
-use App\Http\Livewire\ChartChartjs;
-use App\Http\Livewire\ChartEchart;
-use App\Http\Livewire\ChartFlot;
-use App\Http\Livewire\ChartMorris;
-use App\Http\Livewire\ChartPeity;
-use App\Http\Livewire\ChartSparkline;
-use App\Http\Livewire\Chat;
-use App\Http\Livewire\Collapse;
-use App\Http\Livewire\Contacts;
-use App\Http\Livewire\Counters;
-use App\Http\Livewire\Display;
-use App\Http\Livewire\Draggablecards;
-use App\Http\Livewire\Dropdown;
-use App\Http\Livewire\Editprofile;
-use App\Http\Livewire\Emptypage;
-use App\Http\Livewire\Error404;
-use App\Http\Livewire\Error500;
 use App\Http\Livewire\Extras;
-use App\Http\Livewire\Faq;
-use App\Http\Livewire\Flex;
 use App\Http\Livewire\Forgot;
-use App\Http\Livewire\FormAdvanced;
-use App\Http\Livewire\FormEditor;
-use App\Http\Livewire\FormElements;
-use App\Http\Livewire\FormLayouts;
-use App\Http\Livewire\FormValidation;
-use App\Http\Livewire\FormWizards;
-use App\Http\Livewire\Gallery;
 use App\Http\Livewire\Height;
-use App\Http\Livewire\Horizontal;
-use App\Http\Livewire\Icons;
-use App\Http\Livewire\ImageCompare;
 use App\Http\Livewire\Images;
-use App\Http\Livewire\Index;
-use App\Http\Livewire\Invoice;
-use App\Http\Livewire\ListGroup;
-use App\Http\Livewire\Lockscreen;
-use App\Http\Livewire\Mail;
-use App\Http\Livewire\MailCompose;
-use App\Http\Livewire\MailRead;
-use App\Http\Livewire\MailSettings;
-use App\Http\Livewire\MapLeaflet;
-use App\Http\Livewire\MapVector;
 use App\Http\Livewire\Margin;
-use App\Http\Livewire\MediaObject;
 use App\Http\Livewire\Modals;
-use App\Http\Livewire\Navigation;
-use App\Http\Livewire\Notification;
-use App\Http\Livewire\Padding;
-use App\Http\Livewire\Pagination;
-use App\Http\Livewire\Popover;
-use App\Http\Livewire\Position;
-use App\Http\Livewire\Pricing;
-use App\Http\Livewire\ProductCart;
-use App\Http\Livewire\ProductDetails;
-use App\Http\Livewire\Products;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Progress;
-use App\Http\Livewire\Rangeslider;
 use App\Http\Livewire\Rating;
-use App\Http\Livewire\Reset;
 use App\Http\Livewire\Search;
 use App\Http\Livewire\Signin;
 use App\Http\Livewire\Signup;
-use App\Http\Livewire\Spinners;
-use App\Http\Livewire\SweetAlert;
-use App\Http\Livewire\TableBasic;
-use App\Http\Livewire\TableData;
-use App\Http\Livewire\Tabs;
-use App\Http\Livewire\Tags;
-use App\Http\Livewire\Thumbnails;
-use App\Http\Livewire\Timeline;
-use App\Http\Livewire\Toast;
-use App\Http\Livewire\Todotask;
+use App\Http\Livewire\Buttons;
+use App\Http\Livewire\Display;
+use App\Http\Livewire\Gallery;
+use App\Http\Livewire\Invoice;
+use App\Http\Livewire\Padding;
+use App\Http\Livewire\Popover;
+use App\Http\Livewire\Pricing;
+use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tooltip;
+use App\Http\Livewire\Widgets;
+use App\Http\Livewire\Calendar;
+use App\Http\Livewire\Carousel;
+use App\Http\Livewire\Collapse;
+use App\Http\Livewire\Contacts;
+use App\Http\Livewire\Counters;
+use App\Http\Livewire\Dropdown;
+use App\Http\Livewire\Error404;
+use App\Http\Livewire\Error500;
+use App\Http\Livewire\MailRead;
+use App\Http\Livewire\Position;
+use App\Http\Livewire\Products;
+use App\Http\Livewire\Progress;
+use App\Http\Livewire\Spinners;
+use App\Http\Livewire\Timeline;
+use App\Http\Livewire\Todotask;
 use App\Http\Livewire\Treeview;
-use App\Http\Livewire\Typography;
-use App\Http\Livewire\Underconstruction;
 use App\Http\Livewire\Userlist;
 use App\Http\Livewire\Vertical;
-use App\Http\Livewire\WidgetNotification;
-use App\Http\Livewire\Widgets;
-use App\Http\Livewire\Width;
+use App\Http\Livewire\Accordion;
+use App\Http\Livewire\ChartFlot;
+use App\Http\Livewire\Emptypage;
+use App\Http\Livewire\ListGroup;
+use App\Http\Livewire\MapVector;
+use App\Http\Livewire\TableData;
+use App\Http\Livewire\Background;
+use App\Http\Livewire\ChartPeity;
+use App\Http\Livewire\FormEditor;
+use App\Http\Livewire\Horizontal;
+use App\Http\Livewire\Lockscreen;
+use App\Http\Livewire\MapLeaflet;
+use App\Http\Livewire\Navigation;
+use App\Http\Livewire\Pagination;
+use App\Http\Livewire\SweetAlert;
+use App\Http\Livewire\TableBasic;
+use App\Http\Livewire\Thumbnails;
+use App\Http\Livewire\Typography;
+use App\Http\Livewire\Breadcrumbs;
+use App\Http\Livewire\ChartEchart;
+use App\Http\Livewire\ChartMorris;
+use App\Http\Livewire\Editprofile;
+use App\Http\Livewire\FormLayouts;
+use App\Http\Livewire\FormWizards;
+use App\Http\Livewire\MailCompose;
+use App\Http\Livewire\MediaObject;
+use App\Http\Livewire\ProductCart;
+use App\Http\Livewire\Rangeslider;
+use App\Http\Livewire\ChartChartjs;
+use App\Http\Livewire\FormAdvanced;
+use App\Http\Livewire\FormElements;
+use App\Http\Livewire\ImageCompare;
+use App\Http\Livewire\MailSettings;
+use App\Http\Livewire\Notification;
+use App\Http\Livewire\ChartSparkline;
+use App\Http\Livewire\Draggablecards;
+use App\Http\Livewire\FormValidation;
+use App\Http\Livewire\ProductDetails;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Underconstruction;
+
+use App\Http\Livewire\WidgetNotification;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserapiController;
+use App\Http\Controllers\WebUserController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -114,35 +123,63 @@ Route::get('/', function () {
 });
 
 // User SignIn
-Route::get('/login', 'App\Http\Controllers\UserController@Login')->name('login');
-Route::post('/dologin', 'App\Http\Controllers\UserController@DoLogin');
-
-// User SignOut
-Route::get('signout', 'App\Http\Controllers\UserController@DoLogOut')->middleware('authadminonly');
-
-// Dashboard
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('authadminonly');
-
-// Account Management
-Route::get('/accounts', 'App\Http\Controllers\AccountController@index')->middleware('authadminonly');
-Route::post('/tblAccount', 'App\Http\Controllers\AccountController@getDataTable')->middleware('authadminonly');
-Route::post('/dosavenewaccount', 'App\Http\Controllers\AccountController@doSaveNewAccount')->middleware('authadminonly');
-Route::post('/getdetailaccount', 'App\Http\Controllers\AccountController@getDetailAccount')->middleware('authadminonly');
-Route::post('/dosaveeditaccount', 'App\Http\Controllers\AccountController@doSaveEditAccount')->middleware('authadminonly');
-Route::post('/dodeleteaccount', 'App\Http\Controllers\AccountController@doDeleteAccount')->middleware('authadminonly');
+Route::get('/login', [UserController::class, 'Login'])->name('login');
+Route::post('/dologin', [UserController::class, 'DoLogin']);
 
 // User SignUp
-Route::get('/signup', 'App\Http\Controllers\UserController@SignUp');
-Route::post('/dosignup', 'App\Http\Controllers\UserController@DoSignUp');
+Route::get('/signup', [UserController::class, 'SignUp']);
+Route::post('/dosignup', [UserController::class, 'DoSignUp']);
 
-// Market
-Route::get('/market', 'App\Http\Controllers\MarketController@index')->middleware('authadminonly');
 
-// Exchange
-Route::get('/exchange', 'App\Http\Controllers\ExchangeController@index')->middleware('authadminonly');
+Route::group(['middleware' => ['authadminonly']], function () {
 
-// Wallet
-Route::get('/wallet', 'App\Http\Controllers\WalletController@index')->middleware('authadminonly');
+    // User SignOut
+    Route::get('signout', [UserController::class, 'DoLogOut']);
+
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    // Menu :: CLIENT
+    Route::get('/clients', [ClientController::class, 'index']);
+        Route::get('/ajax/client/show', [ClientController::class, 'showdata']);
+        Route::post('/ajax/client/add', [ClientController::class, 'doAdd']);
+        Route::post('/ajax/client/updatestatus', [ClientController::class, 'doUpdateStatus']);
+        Route::post('/ajax/client/loaddata', [ClientController::class, 'doLoadData']);
+        Route::post('/ajax/client/update', [ClientController::class, 'doUpdate']);
+        Route::post('/ajax/client/delete', [ClientController::class, 'doDelete']);
+
+        // Submenu : Detail
+        Route::get('/clients/detail/{clientid}', [ClientController::class, 'clientdetail']);
+
+        // Submenu : APi Access
+        Route::get('/clients/api/{clientid}', [UserapiController::class, 'index']);
+            Route::get('/ajax/api/show/{clientid}', [UserapiController::class, 'showdata']);
+            Route::post('/ajax/api/add', [UserapiController::class, 'doAdd']);
+            Route::post('/ajax/api/update', [UserapiController::class, 'doUpdate']);
+            Route::post('/ajax/api/reset', [UserapiController::class, 'doReset']);
+            Route::post('/ajax/api/updatestatus', [UserapiController::class, 'doUpdateStatus']);
+            Route::post('/ajax/api/delete', [UserapiController::class, 'doDelete']);
+
+        // Submenu : Web Access
+        Route::get('/clients/web/{clientid}', [WebUserController::class, 'index']);
+            Route::get('/ajax/web/show/{clientid}', [WebUserController::class, 'showdata']);
+            Route::post('/ajax/web/add', [WebUserController::class, 'doAdd']);
+            Route::post('/ajax/web/update', [WebUserController::class, 'doUpdate']);
+            Route::post('/ajax/web/updatestatus', [WebUserController::class, 'doUpdateStatus']);
+            Route::post('/ajax/web/delete', [WebUserController::class, 'doDelete']);
+
+        // Submenu : Routing
+        Route::get('/clients/route/{clientid}', [WebUserController::class, 'index']);
+        
+    // Menu :: VENDOR
+    Route::get('/vendors', [VendorController::class, 'index']);
+
+    // Menu :: PRODUCT
+    Route::get('/products', [ProductController::class, 'index']);
+
+
+
+});
 
 
 
